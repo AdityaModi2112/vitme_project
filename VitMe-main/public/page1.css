@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+*{
+    color: white;
+}
+.bg{
+    background-image: url("vitbg.jpg");
+    background-size: cover;
+    height: 100vh;
+}
+h1{
+    font-family: serif;
+    font-size: 14vh;
+
+}
+#nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height:6vh;
+    width:100%;
+    padding:20px 0;
+    background-color: #193c7e;
+    box-shadow: 0px 4px 8px 0px rgba(255, 255, 255, 0.25);
+}
+#nav img{
+    margin-left:20px;
+    height: 40px;
+}
+#nleft , #nright{
+    display:flex;
+    align-items: center;
+    gap:10px;
+}
+#nright{
+    margin-right:20px;
+    display:flex;
+    align-items: center;
+}
+#e{
+    width: 10vw;
+    text-align: center;
+}
+#nleft a{
+    pointer-events: all;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 2vw;
+    font-weight:700;
+}
+#nright a{
+    pointer-events: all;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.5vw;
+    font-weight:500;
+}
+#nright a:hover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6vh;
+    width: 10vw;
+    background-color: #041939;
+    color:black;
+}
+h4{
+    font-size: 30px;
+}
+.text1{
+   margin-top:
+    20vh;
+}
+.button1{
+    height: 90px;
+    width: 170px;
+    font-size: 25px;
+    background-color: #4CAF50;
+    border-width: 0px;
+    border-radius: 20px;
+    color: white;
+}
+.combine{
+    background-image: url("vitmebackgroung.jpg");
+    background-size: cover;
+}
+.con{
+    position: relative;
+    
+}
+.div5{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 7vh; 
+    font-size: 4vw;
+    font-weight: 700;
+    color: black;
+}
+#container3{
+    display: flex;
+    justify-content: space-evenly;
+}
+.contact_d{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 89vh;
+}
+.i{
+    margin-top:2vh;
+    width: 20vw;
+    height: 30vh;
+    background-color: white;
+}
+.b{
+    margin: 3vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+p{
+    font-size: 1.25vw;
+    font-weight: 200;
+}
+span{
+    font-size: 1.75vw;
+    font-weight: 700;
+}
+.c{
+    margin-bottom: 1vh;
+    margin-top: -12vh;
+}
+.c img{
+    margin-right: 8px;
+}
+.line{
+    width: 0.3vw;
+    background-color: black;
+    height: 40vh;
+    margin-top: 2vw;
+}
+#p33{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.p31{
+    font-size: 5vw;
+    font-weight: 600;
+    text-align: center;
+    color: black;
+}
+.p322{
+    font-size: 20px;
+    font-weight: 400;
+    width: 70%;
+}
+#about3{
+    display: flex;
+    justify-content: center;
+}
+
+/* Animation for the header */
+.text1 h1 {
+    animation: fadeInDown 1s ease-in-out;
+}
+
+/* Animation for the "Get Started" button */
+.text1 .button1 {
+    animation: slideInUp 1s ease-in-out;
+}
+
+/* Animation for the "About" section */
+#about3 {
+    animation: fadeInLeft 1s ease-in-out;
+}
+
+/* Animation for the contact cards */
+.contact_d {
+    animation: fadeInRight 1s ease-in-out;
+}
+
+/* Animation for the contact card separator lines */
+.line {
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Keyframes for fade in down animation */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Keyframes for slide in up animation */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Keyframes for fade in left animation */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Keyframes for fade in right animation */
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Keyframes for fade in up animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.end{
+    text-align: center;
+    
+}
+.end a{
+    color: black;
+    text-decoration: none;
+    font-size: 3vh;
+    font-weight: bold;
+}
+@media(max-width:700px){
+    #container3{
+        flex-direction: column;
+    }
+    .line{
+        display: none;
+    }
+    .b p{
+        font-size: 3.5vh;
+    }
+    .b span{
+        font-size: 3.75vh;
+    }
+    .i{
+        width: 40vw;
+    }
+    .div5{
+        font-size: 5.5vh;
+    }
+    .p31{
+        font-size: 5.5vh;
+    }
+    #nright a{
+        font-size: 2vh;
+    }
+    #nright a:hover {
+        width: 12vw;
+    }
+    .p322{
+        font-size: 15px;
+    }
+}

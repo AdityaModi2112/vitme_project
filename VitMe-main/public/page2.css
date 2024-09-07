@@ -1,0 +1,141 @@
+.row{
+    align-items: center;
+    margin-top: 5vw;
+}
+body{
+    background-image: url("vitmebackgroung.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+.img1{
+    height:40vh;
+    width: 20vw;
+    border-radius: 50%;
+}
+.img-container{
+    width: 40vw;
+    height: 45vh;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+}
+.img2{
+    height:40vh;
+    width: 20vw;
+    border-radius: 50%;
+
+}
+h6{
+    font-size: 30px;
+}
+.nav{
+    padding: 30px;
+    margin-bottom: -84px;
+}
+.nav a {
+color: #ffffff;
+text-decoration: none;
+padding: 10px 20px;
+border-radius: 5px;
+background-color: #007bff;
+transition: background-color 0.3s ease;
+font-weight: bold;
+}
+
+.nav a:hover {
+background-color: #0056b3;
+}
+.col-auto{
+    background-color: white;
+    width: 25%;
+    /* text-align: center; */
+    height: 10vh;
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+}
+@media(max-width:960px){
+    h1{
+        font-size: 2rem;
+    }
+    .img1{
+        height: 35vh;
+        width: 25vw;
+    }
+    .img2{
+        height: 35vh;
+        width: 25vw;
+    }
+    .col-auto {
+        background-color: white;
+        width: 25%;
+        /* text-align: center; */
+        height: 7vh;
+        /* text-align: center; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50px;
+    }
+    .row {
+        align-items: center;
+        margin-top: 12vw;
+    }
+}
+@media(max-width:800px){
+    h1{
+        font-size: 1.25rem;
+    }
+    .img1{
+        height: 30vh;
+        width: 25vw;
+    }
+    .img2{
+        height: 30vh;
+        width: 25vw;
+    }
+    .col-auto {
+        background-color: white;
+        width: 20%;
+        /* text-align: center; */
+        height: 5vh;
+        /* text-align: center; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50px;
+    }
+    .row {
+        align-items: center;
+        margin-top: 12vw;
+    }
+    body{
+        height: 120vh;
+    }
+}
+@media(max-width:680px){
+    h1{
+        font-size:1rem;
+    }
+}
+@media(max-width:580px){
+    h1{
+        font-size: 1.5vh;
+    }
+    .img1{
+        height: 25vh;
+        width: 25vw;
+    }
+    .img2{
+        height: 25vh;
+        width: 25vw;
+    }
+    .row {
+        align-items: center;
+        margin-top: 15vw;
+    }
+}

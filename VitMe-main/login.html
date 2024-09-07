@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html ng-app="loginApp">
+<head>
+    <title>Login Page</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url("vitmebackgroung.jpg");
+    background-size: cover;
+    height: 100vh;
+        }
+.body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+        .nav{
+            padding: 30px;
+        }
+.nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #007bff;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+.nav a:hover {
+    background-color: #0056b3;
+}
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 350px;
+            max-width: 100%;
+            padding: 40px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-container h1 {
+            font-size: 2vw;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .login-container input {
+            width: 90%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f5f5f5;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .login-container input:focus {
+            outline: none;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 255, 0.2);
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            background-color: #588380;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            animation: pulse 1.5s infinite alternate;
+        }
+
+        @keyframes pulse {
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(1.05);
+            }
+        }
+
+        .login-container button:hover {
+            background-color: #316d69;
+        }
+
+        .login-container .signup-btn {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .login-container .signup-btn a {
+            color: #316d69;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .login-container .signup-btn a:hover {
+            color: #588380;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav"><div><a href="page2.html">Go back to the main page</a></div>  </div>
+<div class="body">
+    <div class="login-container" ng-controller="LoginController">
+        <h1>Login</h1>
+        <form action="/employeeblockSelectionPage3" method="POST">
+            <input type="text" placeholder="Username" ng-model="username" required name="username"><br>
+            <input type="password" placeholder="Password" ng-model="password" required name="password"><br>
+            <button type="submit" ng-click="login()">Login</button>
+        </form>
+        <div class="signup-btn">
+            <span>New user? </span><a id="anc" href="signup.html">Sign up</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    var app = angular.module('loginApp', []);
+
+    app.controller('LoginController', function($scope) {
+        $scope.login = function() {
+            // Here you would typically make an API call to authenticate the user
+            // For demonstration purposes, we'll just log the username and password
+            console.log('Username: ' + $scope.username);
+            console.log('Password: ' + $scope.password);
+            // You can add your authentication logic here
+        };
+    });
+</script>
+
+</body>
+</html>

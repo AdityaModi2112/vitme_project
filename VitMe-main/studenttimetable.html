@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timetable</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        table {
+            width: 85%;
+            border-collapse: collapse;
+            height: 50vh;
+            display: none; /* Hide the timetable initially */
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" href="page41.css">
+</head>
+<body>
+    <div class="main">
+        <div class="nav">
+            <div><a href="studentblockSelectionPage3.html">Go back to Academic block selection</a></div>
+            <div><a href="page2.html">Go back to the main page</a></div>  
+        </div> 
+        <div class="a">
+            <div id="days">
+                <button class="tab-links parallogram1" onclick="changeDay(0)">Monday</button>
+                <button class="tab-links parallogram2" onclick="changeDay(1)">Tuesday</button>
+                <button class="tab-links parallogram3" onclick="changeDay(2)">Wednesday</button>
+                <button class="tab-links parallogram4" onclick="changeDay(3)">Thursday</button>
+                <button class="tab-links parallogram5" onclick="changeDay(4)">Friday</button>    
+            </div>
+        
+            <table id="timetable">
+                <thead>
+                    <tr>
+                        <th>Floor No.</th>
+                        <th>10:00am-10:50am</th>
+                        <th>11:00am-11:50am</th>
+                        <th>12:00pm-12:50pm</th>
+                        <th>2:00pm-2:50pm</th>
+                        <th>3:00pm-3:50pm</th>
+                        <th>4:00pm-4:50pm</th>
+                        <th>5:00pm-5:50pm</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Table rows will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        const timetableData = {
+            "Monday": {
+                "0": [{"room": ""}, {"room": ""}, {"room": "G01,G02"}, {"room": "G01"}, {"room": ""},{"room": "G01"}, {"room": ""}],
+                "1": [{"room": "101"}, {"room": ""}, {"room": "101"}, {"room": "101"}, {"room": ""},{"room": ""}, {"room": ""}],
+                "2": [{"room": "201"},{"room": ""}, {"room": "201"}, {"room": "201,202"}, {"room": ""},{"room": ""},{"room": "201"}],
+                "3": [{"room": ""}, {"room": "324"}, {"room": ""}, {"room": "301"}, {"room": ""},{"room": "301,302"}, {"room": ""}],
+                "4": [{"room": ""}, {"room": "401,402"}, {"room": ""}, {"room": "401"}, {"room": ""},{"room": ""}, {"room": ""}],
+                "5": [{"room": ""}, {"room": "501"}, {"room": ""}, {"room": "501"}, {"room": ""},{"room": "501"}, {"room": ""}],
+                "6": [{"room": ""}, {"room": "601"}, {"room": ""}, {"room": ""}, {"room": ""},{"room": "601"}, {"room": ""}]
+            },
+            "Tuesday": {
+                "0": [{"room": ""}, {"room": ""}, {"room": "G01"}, {"room": "G01"}, {"room": ""},{"room": "G01"}, {"room": ""}],
+                "1": [{"room": "101"},{"room": ""}, {"room": ""}, {"room": ""}, {"room": ""},{"room": "101"},{"room": ""}],
+                "2": [{"room": "201"}, {"room": "224"}, {"room": ""}, {"room": ""}, {"room": ""},{"room": ""}, {"room": "201"}],
+                "3": [{"room": ""}, {"room": "324"}, {"room": ""}, {"room": ""}, {"room": ""},{"room": "301"}, {"room": ""}],
+                "4": [{"room": ""}, {"room": "401"}, {"room": ""}, {"room": "401"}, {"room": ""},{"room": "401"}, {"room": ""}],
+                "5": [{"room": ""}, {"room": "401"}, {"room": ""}, {"room": "501"}, {"room": ""},{"room": "501"}, {"room": ""}],
+                "6": [{"room": ""}, {"room": ""}, {"room": ""}, {"room": "601"}, {"room": ""},{"room": "601"}, {"room": ""}]
+            },
+            "Wednesday": {
+                "0": [{"room": "G01"}, {"room": ""}, {"room": "G01"}, {"room": "G01"}, {"room": ""},{"room": ""}, {"room": ""}],
+                "1": [{"room": ""},{"room": ""}, {"room": "101"}, {"room": "101"}, {"room": ""},{"room": "101"},{"room": ""}],
+                "2": [{"room": "201"}, {"room": ""}, {"room": "201"}, {"room": "201"}, {"room": ""},{"room": ""}, {"room": "201"}],
+                "3": [{"room": ""}, {"room": "324"}, {"room": ""}, {"room": "301"}, {"room": ""},{"room": "301"}, {"room": ""}],
+                "4": [{"room": ""}, {"room": "401"}, {"room": ""}, {"room": "401"}, {"room": ""},{"room": "401"}, {"room": ""}],
+                "5": [{"room": ""}, {"room": "501"}, {"room": ""}, {"room": ""}, {"room": ""},{"room": "501"}, {"room": ""}],
+                "6": [{"room": ""}, {"room": "601"}, {"room": ""}, {"room": "501"}, {"room": ""},{"room": "601"}, {"room": ""}]
+            },
+            "Thursday": {
+                "0": [{"room": "G01"},{"room": ""}, {"room": "G01"}, {"room": "G01"}, {"room": ""},{"room": "G01"}, {"room": ""}],
+                "1": [{"room": "101"},{"room": ""}, {"room": "101"}, {"room": "101"}, {"room": ""},{"room": ""}, {"room": ""}],
+                "2": [{"room": "201"},{"room": ""}, {"room": "201"}, {"room": "201"}, {"room": ""},{"room": ""},{"room": "201"}],
+                "3": [{"room": ""}, {"room": "324"}, {"room": ""}, {"room": "301"}, {"room": ""},{"room": ""}, {"room": ""}],
+                "4": [{"room": ""}, {"room": "401"}, {"room": ""}, {"room": "401"}, {"room": ""},{"room": "401"}, {"room": ""}],
+                "5": [{"room": ""}, {"room": "501"}, {"room": ""}, {"room": "501"}, {"room": ""},{"room": "501"}, {"room": ""}],
+                "6": [{"room": ""}, {"room": "601"}, {"room": ""}, {"room": "601"}, {"room": ""},{"room": "601"}, {"room": ""}]
+            },
+            "Friday": {
+                "0": [{"room": "G01"}, {"room": ""}, {"room": "G01"}, {"room": "G01"}, {"room": ""},{"room": "G01"}, {"room": ""}],
+                "1": [{"room": "101"}, {"room": ""}, {"room": "101"}, {"room": "101"}, {"room": ""},{"room": "101"}, {"room": ""}],
+                "2": [{"room": "201"},{"room": ""}, {"room": "201"}, {"room": "201"}, {"room": ""},{"room": ""},{"room": "201"}],
+                "3": [{"room": ""}, {"room": "324"}, {"room": ""}, {"room": "301"}, {"room": ""},{"room": "301"}, {"room": ""}],
+                "4": [{"room": ""}, {"room": "401"}, {"room": ""}, {"room": "401"}, {"room": ""},{"room": "401"}, {"room": ""}],
+                "5": [{"room": ""}, {"room": "501"}, {"room": ""}, {"room": "501"}, {"room": ""},{"room": "501"}, {"room": ""}],
+                "6": [{"room": ""}, {"room": "601"}, {"room": ""}, {"room": "601"}, {"room": ""},{"room": "601"}, {"room": ""}]
+            }
+        };
+
+        // Function to create the timetable table
+        function createTimetable(day) {
+            const tableBody = document.querySelector("#timetable tbody");
+            tableBody.innerHTML = '';
+
+            // Loop through each floor
+            for (let i = 0; i <= 6; i++) {
+                const row = document.createElement("tr");
+                // Add floor number
+                const floorCell = document.createElement("td");
+                floorCell.textContent = i;
+                row.appendChild(floorCell);
+            // Loop through each floor
+            for (let j = 0; j <=6; j++) {
+                    const cell = document.createElement("td");
+                    const classInfo = timetableData[day][j.toString()];
+                    let roomText = "";
+                    if (classInfo && classInfo.length > i) {
+                        roomText = classInfo[i].room;
+                    }
+                    cell.textContent = roomText;
+                    row.appendChild(cell);
+                }
+                tableBody.appendChild(row);
+            }
+        }
+        function changeDay(dayIndex) {
+            const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+            const selectedDay = days[dayIndex];
+            createTimetable(selectedDay);
+        }
+        createTimetable("Monday");
+        
+        // Toggle visibility of timetable when any tab link is clicked
+        $(document).ready(function(){
+            $(".tab-links").click(function(){
+                $("#timetable").slideToggle("slow");
+            })
+        })
+    </script>
+</body>
+</html>
